@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.Data">
+ 	<!--分页最外层封装-->
+	<sql id="pageStart">
+		<![CDATA[
+             select * from (select rownum num,temp_t.* from(
+        ]]>
+	</sql>
+	<!-- 分页最外层封装 -->
+	<sql id="pageEnd">
+		<![CDATA[
+              ) temp_t  where  rownum<=((#pageNo#-1)*#pageSize#+#pageSize#)) where num>(#pageNo#-1)*#pageSize#
+        ]]>
+	</sql>
+		<!-- mysql分页最外层封装 -->
+	<sql id="mysqlPageEnd">
+		<![CDATA[
+             limit #pageStart#,#pageSize#
+        ]]>
+	</sql>
+	
+ 	<typeAlias alias="plantUnicom" type="com.goo.data.entity.PlantUnicom" />
+    
+<insert id="insertPlant" parameterClass="plantUnicom">
+		INSERT INTO
+		T_DAT_PLANT(ID,FIELD1,FIELD2,FIELD3
+		
+		) 
+		VALUES (#plaId#,#plaField1#,#plaField2#,#plaField3#
+		
+		)
+	</insert>
+	<insert id="insertEnv" parameterClass="plantUnicom">
+		INSERT INTO
+		T_DAT_ENV(ID,F_ID,FIELD1,FIELD2,FIELD3
+		
+		) 
+		VALUES (#envId#,#plaId#,#envField1#,#envField2#,#envField3#
+		
+		)
+	</insert>
+	<select id="selectPlants" parameterClass="map" resultClass="plantUnicom">
+ 	 	select a.id as plaId,a.field1 as plaField1,a.field2 as plaField2,a.field3 as plaField3,
+ 	 	b.id as envId,b.field1 as envField1,b.field2 as envField2,b.field3 as envField3
+ 	 	from t_dat_plant a left join t_dat_env b on a.id = b.f_id
+ 	 	where 1=1
+ 	 	<isNotEmpty prepend="and" property="plaId">
+		a.id  = #plaId#
+		</isNotEmpty>		
+		order by a.createTime DESC
+ 		<include refid="mysqlPageEnd"/>
+ 	</select>
+ 	<select id="selectOnePlant" parameterClass="map" resultClass="plantUnicom">
+ 	 	select a.id as plaId,a.field1 as plaField1,a.field2 as plaField2,a.field3 as plaField3,
+ 	 	b.id as envId,b.field1 as envField1,b.field2 as envField2,b.field3 as envField3
+ 	 	from t_dat_plant a left join t_dat_env b on a.id = b.f_id
+ 	 	where 
+		a.id  = #plaId#	
+ 	</select>
+ 	<select id="selectPlantsTotal" parameterClass="map" resultClass="Integer">
+ 		SELECT count(*) FROM t_dat_plant a where 1=1
+ 		<isNotEmpty prepend="and" property="plaId">
+		a.id  = #plaId#
+		</isNotEmpty>		
+		order by a.createTime DESC
+ 	</select>
+	  </sqlMap>

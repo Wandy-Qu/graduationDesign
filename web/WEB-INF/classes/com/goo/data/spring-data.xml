@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+					http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="true">
+	<bean id="data.DataAction" scope="prototype" 
+		class="com.goo.data.action.DataAction">
+			<property name="dataHandleServiceImpl">
+				<ref bean="data.dataHandleService" />
+			</property>
+	</bean>
+	<bean id="data.dataHandleService" class="com.goo.data.service.impl.DataHandleServiceImpl" >
+		<property name="dataHandleDaoImpl">
+			<ref bean="data.dataHandleDao" />
+		</property>
+	</bean>
+	<bean id="data.dataHandleDao" class="com.goo.data.dao.impl.DataHandleDaoImpl">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>	
+	</bean>
+</beans>

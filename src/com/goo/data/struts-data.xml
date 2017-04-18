@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+
+  <package name="data" namespace="/data" extends="struts-default" >
+
+	<action name="locCreateData" class="data.DataAction"
+			method="locCreateData">
+			<result name="success" >/WEB-INF/data/createData.jsp</result>
+	</action>
+	 <action name="locSelectData" class="data.DataAction"
+				method="locSelectData">
+				<result name="success" >/WEB-INF/data/selectData.jsp</result>
+		</action>
+	 <action name="addData" class="data.DataAction"
+				method="addData">
+				<result name="success" type="redirect">searchPlants.action</result>
+		</action>
+		 <action name="searchPlants" class="data.DataAction"
+				method="searchPlants">
+				<result name="success" >/WEB-INF/data/selectData.jsp</result>
+		</action>
+		<action name="searchPlantDetaill" class="data.DataAction"
+				method="searchPlantDetaill">
+				<result name="success" >/WEB-INF/data/plantDetail.jsp</result>
+		</action>
+  </package>
+	
+</struts>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+					http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+					http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+					http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-lazy-init="true">
+
+	<bean id="productDisplayManagement.ShowSingleProductAction" scope="prototype" class="com.goo.productDisplayManagement.action.ShowSingleProductAction">
+		<property name="showProductServiceImpl">
+			<ref bean = "product.showProductService"/>
+		</property>
+	</bean>
+	<bean id="product.showProductService" class="com.goo.productDisplayManagement.service.impl.ShowProductServiceImpl" >
+		<property name="productManageDaoImpl">
+			<ref bean="productDisplayManagement.productManageDao" />
+		</property>
+	</bean>
+	<bean id="productDisplayManagement.productManageDao" class="com.goo.productDisplayManagement.dao.impl.ProductManageDaoImpl">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>	
+	</bean>
+
+</beans>

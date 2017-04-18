@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+     <!-- 部分重要配置说明: 
+     maxRequests: 同时执行sql语句的最大线程数；
+     maxSessions: 最大Session数,即当前最大允许的并发SqlMapClient数
+     errorTracingEnabled : 是否启用错误日志，在开发期间建议设为"true" 以方便调试
+                              上线时请设置为"false"；
+      -->
+	<settings cacheModelsEnabled="true" enhancementEnabled="false"
+		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="32"
+		maxSessions="10" maxTransactions="5" useStatementNamespaces="true" /> 
+
+    <sqlMap resource="com/goo/uam/entity/user.xml"/>
+    
+    <sqlMap resource="com/goo/productDisplayManagement/entity/product.xml"/>
+   
+</sqlMapConfig>

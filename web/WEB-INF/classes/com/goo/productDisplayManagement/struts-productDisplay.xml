@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+  <package name="productDisplayManagement" namespace="/productDisplayManagement" extends="struts-default" >
+  	
+  	<action name="displayProducts" class="productDisplayManagement.ShowSingleProductAction" method="displayProducts">
+		<result name="success">/products.jsp</result>
+	</action>
+  	<action name="showSingleProduct" class="productDisplayManagement.ShowSingleProductAction" method="showSingleProduct">
+		<result name="success">/single.jsp</result>
+	</action>
+	
+
+  </package>
+	
+</struts>
+

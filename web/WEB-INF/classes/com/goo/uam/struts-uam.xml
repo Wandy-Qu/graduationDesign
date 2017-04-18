@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+
+<struts>
+
+  <package name="uam" namespace="/uam" extends="struts-default" >
+  	
+  	<action name="locLogin" class="uam.LoginAction" method="locLogin">
+		<result name="success">/WEB-INF/uam/login.jsp</result>
+	</action>
+	
+	<action name="locRegist" class="uam.LoginAction" method="locRegist">
+		<result name="success">/WEB-INF/uam/register.jsp</result>
+	</action>
+  	
+  	<action name="login" class="uam.LoginAction" method="login">
+		<result name="success">/index.jsp</result>
+		<result name="error">/indexbak.jsp</result>
+	</action>
+	
+	<action name="regist" class="uam.LoginAction" method="regist">
+		<result name="success">/index.jsp</result>
+		<result name="error">/indexbak.jsp</result>
+	</action>
+	
+  </package>
+	
+</struts>
+
