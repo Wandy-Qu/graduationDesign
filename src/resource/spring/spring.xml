@@ -13,5 +13,5 @@
 	
 	<import resource="../../com/goo/productDisplayManagement/spring-productDisplay.xml"/>
 
-	<!--<import resource="../../com/goo/data/spring-data.xml" />--> 
+	<import resource="../../com/goo/cart/spring-cart.xml" />
 </beans>

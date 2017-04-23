@@ -5,7 +5,8 @@
  
 	<include file="com/goo/data/struts-data.xml" /> 
 	<include file="com/goo/uam/struts-uam.xml" /> 
-	<include file="com/goo/productDisplayManagement/struts-productDisplay.xml" /> 
+	<include file="com/goo/productDisplayManagement/struts-productDisplay.xml" />
+	<include file="com/goo/cart/structs-cart.xml" />
 	
 </struts>
 	
