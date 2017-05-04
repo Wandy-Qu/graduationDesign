@@ -9,7 +9,10 @@ public class Product {
 	private boolean isHotSale;
 	private String pictureUrl;
 	private String category;
-	
+
+	public Product() {
+	}
+
 	public int getProductId() {
 		return productId;
 	}

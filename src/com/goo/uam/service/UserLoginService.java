@@ -6,7 +6,7 @@ import com.goo.uam.entity.User;
 
 public interface UserLoginService {
 
-	public boolean login(User user) throws Exception;
+	public User login(User user) throws Exception;
 	public boolean regist(User user);
 
 	public List<User> searchUser(Map queryCondition) throws Exception;

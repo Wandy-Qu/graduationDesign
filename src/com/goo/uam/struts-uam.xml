@@ -8,19 +8,19 @@
   	<action name="locLogin" class="uam.LoginAction" method="locLogin">
 		<result name="success">/WEB-INF/uam/login.jsp</result>
 	</action>
-	
+
+	 <action name="login" class="uam.LoginAction" method="login">
+		<result name="success">/index.jsp</result>
+	 </action>
+
 	<action name="locRegist" class="uam.LoginAction" method="locRegist">
 		<result name="success">/WEB-INF/uam/register.jsp</result>
 	</action>
-  	
-  	<action name="login" class="uam.LoginAction" method="login">
-		<result name="success">/index.jsp</result>
-		<result name="error">/indexbak.jsp</result>
-	</action>
+
 	
 	<action name="regist" class="uam.LoginAction" method="regist">
-		<result name="success">/index.jsp</result>
-		<result name="error">/indexbak.jsp</result>
+		<result name="success">/WEB-INF/uam/login.jsp</result>
+		<!--<result name="error">/indexbak.jsp</result>-->
 	</action>
 	
   </package>

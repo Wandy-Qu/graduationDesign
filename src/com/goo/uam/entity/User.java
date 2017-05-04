@@ -40,15 +40,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public User(String emailAddress, String password) {
-		this.userEmail = emailAddress;
-		this.password = password;
-	}
-	public User(String emailAddress, String password, String userName) {
-		this.password = password;
-		this.userEmail = emailAddress;
-		this.userName = userName;
-	}
-	
-	
+
 }

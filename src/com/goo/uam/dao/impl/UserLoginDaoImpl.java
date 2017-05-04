@@ -8,16 +8,16 @@ import com.goo.uam.entity.User;
 
 public class UserLoginDaoImpl extends SqlMapClientDaoSupport implements UserLoginDao {
 
-	public int userExist(User user) {
-		List list = this.getSqlMapClientTemplate().queryForList(
-				"sql.uam.selectOneUser", user);
-		if (list != null && list.size() > 0)
-			return Integer.parseInt(list.get(0).toString());
-		else
-			return 0;
+	private static final String SQL_UAM_SELECT_ONE_USER = "sql.uam.selectOneUser";
+	private static final String SQL_UAM_CHECK_USER = "sql.uam.checkUser";
+
+	public User userExist(User user) {
+		User userDto = (User)this.getSqlMapClientTemplate().queryForObject(
+				SQL_UAM_SELECT_ONE_USER, user);
+		return  userDto;
 	}
 	public boolean userInsert(User user){
-		this.getSqlMapClientTemplate().insert("sql.uam.checkUser", user);
+		this.getSqlMapClientTemplate().insert(SQL_UAM_CHECK_USER, user);
 		return true;
 	}
 	public List<User> searchUser(Map queryCondition) {

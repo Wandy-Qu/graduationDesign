@@ -19,12 +19,9 @@ public class UserLoginServiceImpl implements UserLoginService{
 		this.userLoginDaoImpl = userLoginDaoImpl;
 	}
 
-	public boolean login(User user) throws Exception {
-		int count = userLoginDaoImpl.userExist(user);
-		if(count==1){
-			return true; 
-		}
-		return false;
+	public User login(User user) throws Exception {
+		User loginUser= userLoginDaoImpl.userExist(user);
+		return loginUser;
 	}
 	
 	public boolean regist(User user) {
@@ -42,5 +39,4 @@ public class UserLoginServiceImpl implements UserLoginService{
 		return 0;
 	}
 
-	
 }

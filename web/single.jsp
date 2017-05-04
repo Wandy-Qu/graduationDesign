@@ -468,7 +468,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="clearfix"></div>
                     </div>
 
-                    <h5 class="item_price">$ 95.00</h5>
+                    <h5 class="item_price">$ ${productDto.productUnitPrice}</h5>
                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed
                         diam nonummy nibh euismod tincidunt ut laoreet dolore
                         magna aliquam erat </p>
@@ -497,7 +497,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><span>SKU</span>
                             <span class="women1">: CK09</span></li>
                     </ul>
-                    <a href="${pageContext.request.contextPath}/cart/addToCart.action" class="add-cart item_add">ADD TO CART</a>
+                    <a href="${pageContext.request.contextPath}/cart/addToCart.action?productDto.productId=${productDto.productId}" class="add-cart item_add">ADD TO CART</a>
 
                 </div>
             </div>

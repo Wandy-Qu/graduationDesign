@@ -10,8 +10,11 @@
 	<import resource="applicationContext-ibatis.xml" />
 	
 	<import resource="../../com/goo/uam/spring-uam.xml" />
-	
+
 	<import resource="../../com/goo/productDisplayManagement/spring-productDisplay.xml"/>
 
 	<import resource="../../com/goo/cart/spring-cart.xml" />
+
+	<!--<import resource="../../com/goo/order/spring-order.xml" />-->
+
 </beans>

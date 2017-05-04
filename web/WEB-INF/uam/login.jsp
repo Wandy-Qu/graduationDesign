@@ -289,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<form method="post" action="${pageContext.request.contextPath}/uam/login.action" onsubmit="return submitForm();">
 						<div>
 							<span>Email</span>
-							<input type="text" name="userDto.emailAddress" id="emailAddress">
+							<input type="text" name="userDto.userEmail" id="userEmail">
 						</div>
 						<div>
 							<span>Password</span>
@@ -299,8 +299,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</form>
 				</div>
 				<div class="col-md-4 left-account ">
-					<a href="${pageContext.request.contextPath}/single.jsp"><img class="img-responsive "
-						src="${pageContext.request.contextPath}/images/s1.jpg" alt="">
+					<a href="${pageContext.request.contextPath}/single.jsp">
+						<img class="img-responsive " src="${pageContext.request.contextPath}/images/s1.jpg" alt="">
 					</a>
 					<div class="five">
 						<h2>25%</h2>

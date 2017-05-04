@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.uam">
+
+ 	<typeAlias alias="category" type="com.goo.uam.entity.ProductCategory" />
+    <resultMap id="categoryMap" class="com.goo.uam.entity.ProductCategory">
+        <result property="categoryId" column="categoryId"/>
+        <result property="categpryType" column="categpryType"/>
+        <result property="categoryName" column="categoryName"/>
+    </resultMap>
+    <sql id="find">
+        select categoryId as categoryId, type as type, categoryName as categoryName from category
+    </sql>
+ 	<select id="findByACC" parameterClass="category">
+        <include refid="find"/>
+ 		 where categpryType = 'acc'
+ 	</select>
+ 	
+ 	<select id="findByDress" parameterClass="category">
+        <include refid="find"/>
+        where categpryType = 'dress'
+    </select>
+
+    <select id="findByBrands" parameterClass="category">
+        <include refid="find"/>
+        where categpryType = 'Popular Brands'
+    </select>
+ 	
+ </sqlMap>

@@ -16,5 +16,7 @@
     <sqlMap resource="com/goo/productDisplayManagement/entity/product.xml"/>
 
     <sqlMap resource="com/goo/cart/entity/cart.xml"/>
-   
+
+    <!--<sqlMap resource="com/goo/cart/entity/order.xml"/>-->
+
 </sqlMapConfig>

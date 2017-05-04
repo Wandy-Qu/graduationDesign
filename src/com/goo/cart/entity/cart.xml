@@ -4,7 +4,7 @@
  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
  <sqlMap  namespace="sql.cartManagement">
 	
- 	<typeAlias alias="cart" type="com.goo.cart.entity.CartProduct" />
+ 	<typeAlias alias="cartProduct" type="com.goo.cart.entity.CartProduct" />
     <resultMap id="cartMap" class="com.goo.cart.entity.CartProduct">
         <result property="cartProId" column="cpId"/>
         <result property="cartUserId" column="cuId"/>
@@ -15,21 +15,13 @@
         <result property="cartProAddTime" column="cproAddTime"/>
     </resultMap>
 
-    <select id="selectProducts"  resultClass="product">
- 		select * from t_product where category=#category#
- 	</select>
- 	
- 	<select id="selectOneProduct" parameterClass="int" resultClass="product">
- 		select * from t_product where productId=#productId#
- 	</select>
- 	
-<!--  	<select id="selectOneProduct" parameterClass="product" resultClass="Product">
- 		select count(*) from t_product where user_email=#emailAddress# and password = #password#
- 	</select> -->
- 	
-<!--  	<insert id="checkUser" parameterClass="user">
- 		insert into t_uam_user(password,user_name, user_email)
- 		values(#password#,#loginName#,#emailAddress#) 
- 	</insert> -->
- 	
+    <insert id="addToCart" parameterClass="cartProduct">
+        insert into t_cart(cpId, cuId, cproName, cproType, cproPrice, cproNumber, cproAddTime)
+        VALUES (#cartProId#, #cartUserId#, #cartProName#, #cartProType#, #cartProPrice#, #cartProNumber#, #cartProAddTime#);
+    </insert>
+
+    <!--<select id="selectAllProductsInCart"  resultClass="cartProduct">-->
+ 		<!--select * from t_product where category=#category#-->
+ 	<!--</select>-->
+
  </sqlMap>

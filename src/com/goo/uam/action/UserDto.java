@@ -2,20 +2,20 @@ package com.goo.uam.action;
 
 public class UserDto {
 	private String loginName;
-	private String emailAddress;
+	private String userEmail;
 	private String password;
-	
-	public String getEmailAddress() {
-		return emailAddress;
-	}
+
 	public String getLoginName() {
 		return loginName;
 	}
 	public void setLoginName(String loginName) {
 		this.loginName = loginName;
 	}
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 	public String getPassword() {
 		return password;
@@ -23,5 +23,4 @@ public class UserDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }

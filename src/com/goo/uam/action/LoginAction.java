@@ -4,6 +4,8 @@ import com.goo.comtools.action.BaseAction;
 import com.goo.uam.entity.User;
 import com.goo.uam.service.UserLoginService;
 
+import java.util.Date;
+
 public class LoginAction extends BaseAction{
 	
 	private UserDto userDto;
@@ -22,11 +24,19 @@ public class LoginAction extends BaseAction{
 		this.userLoginServiceImpl = userLoginServiceImpl;
 	}
 	
-	public User getloginUser(UserDto userDto) {	
-		return new User(userDto.getEmailAddress(),userDto.getPassword());
+	public User getLoginUser(UserDto userDto) {
+		User user = new User();
+		user.setEmailAddress(userDto.getUserEmail());
+		user.setPassword(userDto.getPassword());
+		return user;
 	}
-	public User getregistUser(){
-		return new User(userDto.getEmailAddress(),userDto.getPassword(),userDto.getLoginName());
+	public User getRegistUser(){
+		User user = new User();
+		user.setEmailAddress(userDto.getUserEmail());
+		user.setPassword(userDto.getPassword());
+		user.setLoginName(user.getLoginName());
+		user.setCreateTime(new Date());
+		return user;
 	}
 	//login
 	public String locLogin(){
@@ -34,7 +44,9 @@ public class LoginAction extends BaseAction{
 	}
 	public String login(){
 		try {
-			if(userLoginServiceImpl.login(getloginUser(userDto))){
+			User user = userLoginServiceImpl.login(getLoginUser(userDto));
+			if(user!=null){
+				getSession().setAttribute("userInfo", user);
 				return "success";
 			}
 		} catch (Exception e) {
@@ -49,7 +61,7 @@ public class LoginAction extends BaseAction{
 	}
 	public String regist(){
 		try {
-			if(userLoginServiceImpl.regist(getregistUser())){
+			if(userLoginServiceImpl.regist(getRegistUser())){
 				return "success";
 			}
 		} catch (Exception e) {

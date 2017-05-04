@@ -4,15 +4,23 @@ import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.xml.ws.spi.http.HttpContext;
 
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.web.context.WebApplicationContext;
 
 public class BaseAction extends ActionSupport{
 	private static final Logger LOG = Logger.getLogger(BaseAction.class);
 	private static final long serialVersionUID = 1L;
+	private HttpSession session = ServletActionContext.getRequest().getSession();
+
+	public HttpSession getSession() {
+		return session;
+	}
 
 	public final String SUCCESS = "success";
 
