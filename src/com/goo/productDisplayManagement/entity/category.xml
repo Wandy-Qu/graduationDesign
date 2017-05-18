@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.productDisplayManagement">
+	
+ 	<typeAlias alias="category" type="com.goo.productDisplayManagement.entity.Category" />
+    <resultMap id="categoryMap" class="com.goo.productDisplayManagement.entity.Category">
+        <result property="categoryId" column="categoryId"/>
+        <result property="categoryName" column="categoryName"/>
+
+    </resultMap>
+    
+    <select id="selectAllCategory"  resultClass="catogory">
+ 		select * from catogory
+ 	</select>
+ 	
+ 	<!--<select id="selectOneProduct" parameterClass="int" resultClass="product">-->
+ 		<!--select * from t_product where productId=#productId#-->
+ 	<!--</select>-->
+ 	<!---->
+<!--  	<select id="selectOneProduct" parameterClass="product" resultClass="Product">
+ 		select count(*) from t_product where user_email=#emailAddress# and password = #password#
+ 	</select> -->
+ 	
+<!--  	<insert id="checkUser" parameterClass="user">
+ 		insert into t_uam_user(password,user_name, user_email)
+ 		values(#password#,#loginName#,#emailAddress#) 
+ 	</insert> -->
+ 	
+ </sqlMap>

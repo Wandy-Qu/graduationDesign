@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.productDisplayManagement">
+	
+ 	<typeAlias alias="productPicture" type="com.goo.productDisplayManagement.entity.ProductPictures" />
+    <resultMap id="productPictureMap" class="com.goo.productDisplayManagement.entity.ProductPictures">
+        <result property="productMessageId" column="productMessageId"/>
+        <result property="productId" column="productId"/>
+        <result property="frontPicUrl" column="frontPicUrl"/>
+        <result property="backPicUrl" column="backPicUrl"/>
+        <result property="leftPicUrl" column="leftPicUrl"/>
+        <result property="rightPicUrl" column="rightPicUrl"/>
+    </resultMap>
+
+    <select id="selectMainPicture" parameterClass="int" >
+ 		select mainPicUrl from productpictureurl where proId=#proId#
+ 	</select>
+ 	
+ 	<select id="selectDetailPicture" parameterClass="int" resultClass="productPicture">
+ 		select mainPicUrl,frontPicUrl, backPicUrl, leftPicUrl,rightPicUrl from productpictureurl where proId=#proId#
+ 	</select>
+
+ </sqlMap>

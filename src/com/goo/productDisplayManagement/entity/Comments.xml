@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.productDisplayManagement">
+	
+ 	<typeAlias alias="comments" type="com.goo.productDisplayManagement.entity.Comments" />
+    <resultMap id="CommentsMap" class="com.goo.productDisplayManagement.entity.Comments">
+        <result property="commentId" column="commentId"/>
+        <result property="userId" column="userId"/>
+        <result property="proId" column="proId"/>
+        <result property="comment" column="comment"/>
+
+    </resultMap>
+
+    <insert id="addComment" parameterClass="comments">
+        insert into comments(commentId,userId, proId,comment)
+        values(#commentId#,#userId#,#proId#,#comment#)
+    </insert>
+
+    <select id="allCommentsByProduct" parameterClass="int" resultClass="comments">
+ 		select * from comments where proId=#proId#
+ 	</select>
+ 	
+ 	<select id="allCommentsByUser" parameterClass="int" resultClass="comments">
+ 		select * from comments where userId=#userId#
+ 	</select>
+ 	
+ </sqlMap>

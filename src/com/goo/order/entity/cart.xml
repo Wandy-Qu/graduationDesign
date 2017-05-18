@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.cartManagement">
+	
+ 	<typeAlias alias="cartProduct" type="com.goo.cart.entity.CartProduct" />
+    <resultMap id="cartMap" class="com.goo.cart.entity.CartProduct">
+        <result property="cartProId" column="cpId"/>
+        <result property="cartUserId" column="cuId"/>
+        <result property="cartProName" column="cproName"/>
+        <result property="cartProType" column="cproType"/>
+        <result property="cartProPrice" column="cproPrice"/>
+        <result property="cartProNumber" column="cproNumber"/>
+        <result property="cartProAddTime" column="cproAddTime"/>
+    </resultMap>
+
+    <insert id="addToCart" parameterClass="cartProduct">
+        insert into t_cart(cpId, cuId, cproName, cproType, cproPrice, cproNumber, cproAddTime)
+        VALUES (#cartProId#, #cartUserId#, #cartProName#, #cartProType#, #cartProPrice#, #cartProNumber#, #cartProAddTime#);
+    </insert>
+
+    <!--<select id="selectAllProductsInCart"  resultClass="cartProduct">-->
+ 		<!--select * from t_product where category=#category#-->
+ 	<!--</select>-->
+
+ </sqlMap>
