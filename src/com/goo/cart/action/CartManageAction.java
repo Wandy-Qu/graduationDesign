@@ -4,6 +4,7 @@ import com.goo.cart.entity.CartProduct;
 import com.goo.cart.service.CartProductService;
 import com.goo.comtools.action.BaseAction;
 import com.goo.productDisplayManagement.entity.Product;
+import com.goo.productDisplayManagement.service.ShowProductService;
 import com.goo.uam.entity.User;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class CartManageAction extends BaseAction{
 	private CartProductService cartProductServiceImpl;
 	List<CartProduct> cartProducts;
 	private Integer pid;
+	private ShowProductService showProductServiceImpl;
 
 	public Integer getPid() {
 		return pid;

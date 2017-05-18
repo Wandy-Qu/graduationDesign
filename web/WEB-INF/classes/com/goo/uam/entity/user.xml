@@ -23,8 +23,8 @@
  	</select>
  	
  	<insert id="checkUser" parameterClass="user">
- 		insert into t_uam_user(password,user_name, user_email)
- 		values(#password#,#loginName#,#emailAddress#) 
+ 		insert into t_uam_user(password,user_name, user_email,createTime)
+ 		values(#password#,#userName#,#userEmail#,#createTime#)
  	</insert>
  	
  </sqlMap>

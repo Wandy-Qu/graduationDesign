@@ -1,25 +1,30 @@
 package com.goo.uam.action;
 
 public class UserDto {
-	private String loginName;
+	private String userName;
 	private String userEmail;
 	private String password;
 
-	public String getLoginName() {
-		return loginName;
+	public String getUserName() {
+		return userName;
 	}
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+
 	public String getUserEmail() {
 		return userEmail;
 	}
+
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}

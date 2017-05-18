@@ -26,15 +26,15 @@ public class LoginAction extends BaseAction{
 	
 	public User getLoginUser(UserDto userDto) {
 		User user = new User();
-		user.setEmailAddress(userDto.getUserEmail());
+		user.setUserEmail(userDto.getUserEmail());
 		user.setPassword(userDto.getPassword());
 		return user;
 	}
 	public User getRegistUser(){
 		User user = new User();
-		user.setEmailAddress(userDto.getUserEmail());
+		user.setUserEmail(userDto.getUserEmail());
 		user.setPassword(userDto.getPassword());
-		user.setLoginName(user.getLoginName());
+		user.setUserName(userDto.getUserName());
 		user.setCreateTime(new Date());
 		return user;
 	}

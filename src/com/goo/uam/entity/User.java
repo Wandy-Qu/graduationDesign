@@ -9,36 +9,44 @@ public class User {
 	private String password;
 	private String userEmail;
 	private Date createTime;
-	
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-	public Date getCreateTime() {
-		return createTime;
-	}
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
-	public String getEmailAddress() {
-		return userEmail;
-	}
-	public void setEmailAddress(String emailAddress) {
-		this.userEmail = emailAddress;
-	}
-	public String getLoginName() {
+
+	public String getUserName() {
 		return userName;
 	}
-	public void setLoginName(String loginName) {
-		this.userName = loginName;
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
 }
