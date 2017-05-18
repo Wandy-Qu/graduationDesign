@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       default-lazy-init="true">
+
+	<bean id="order.OrderManageAction" scope="prototype" class="com.goo.order.action.OrderManageAction">
+		<property name="cartProductServiceImpl">
+			<ref bean="cart.cartProductService" />
+		</property>
+	</bean>
+
+	<bean id="cart.cartProductService" class="com.goo.cart.service.impl.CartProductServiceImpl" >
+		<property name="cartProductManageDaoImpl">
+			<ref bean="cart.cartProductManageDao" />
+		</property>
+	</bean>
+
+	<bean id="cart.cartProductManageDao" class="com.goo.cart.dao.impl.CartProductManageDaoImpl">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>	
+	</bean>
+
+</beans>

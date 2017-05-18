@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ <sqlMap  namespace="sql.orderManagement">
+	
+ 	<typeAlias alias="order" type="com.goo.order.entity.Order" />
+    <resultMap id="orderMap" class="com.goo.order.entity.Order">
+        <result property="orderId" column="orderId"/>
+        <result property="userId" column="userId"/>
+        <result property="proId" column="proId"/>
+        <result property="proNumber" column="proNumber"/>
+        <result property="totalAmount" column="totalAmount"/>
+
+    </resultMap>
+
+    <insert id="createOrder" parameterClass="order">
+        insert into order(orderId, userId, proId, proNumber, totalAmount)
+        VALUES (#orderId#, #userId#, #proId#, #proNumber#, #totalAmount#);
+    </insert>
+
+    <!--<select id="selectAllProductsInCart"  resultClass="cartProduct">-->
+ 		<!--select * from t_product where category=#category#-->
+ 	<!--</select>-->
+
+ </sqlMap>
